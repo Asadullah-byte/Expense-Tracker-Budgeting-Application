@@ -27,7 +27,8 @@ namespace Expense_Tracker
     {
         // Connection to the database
         string sqlStr = "";
-        SqlConnection Con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|ExpenseDB.mdf;Integrated Security=True;Connect Timeout=30");
+        SqlConnection Con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\ExpenseDB.mdf" +
+            ";Integrated Security=True;Connect Timeout=30");
 
         // Placeholder texts for username and password & Place holder Pattern to validte and ensure .
         string usernamePattern = @"^[a-zA-Z0-9_]{4,}$";
@@ -75,7 +76,7 @@ namespace Expense_Tracker
                 
                 User = txtUsername.Text;
                 Dashboardloads = true;
-                Income obj =new Income();
+                Dashboard obj =new Dashboard();
                 obj.Show();
                 this.Hide();
                 

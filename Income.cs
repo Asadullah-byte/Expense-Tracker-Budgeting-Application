@@ -16,6 +16,7 @@ namespace Expense_Tracker
         public Income()
         {
             InitializeComponent();
+            GetTotlIncome();
         }
 
         private void Total_Income_Dashboard_Paint(object sender, PaintEventArgs e)
@@ -110,6 +111,7 @@ namespace Expense_Tracker
 
         }
 
+
         private void label5_Click(object sender, EventArgs e)
         {
 
@@ -131,6 +133,21 @@ namespace Expense_Tracker
             IncAmtTb.Text = "";
             IncCatCb.SelectedIndex = 0;
             IncDescTb.Text = "";
+        }
+
+        private void GetTotlIncome()
+        {
+            Con.Open();
+            using (SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|ExpenseDB.mdf;Integrated Security=True;Connect Timeout=30"))
+            {
+
+
+                SqlDataAdapter sda = new SqlDataAdapter("SELECT Sum(IncAmt) FROM [IncomeTbl] WHERE IncUser= '" + LoginCls.User + "'", Con);
+                DataTable dt = new DataTable();
+                sda.Fill(dt);
+                TotlInc.Text = "RS " + dt.Rows[0][0].ToString();
+                Con.Close();
+            }
         }
         private void AddBtn_Click(object sender, EventArgs e)
         {

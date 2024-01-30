@@ -5,7 +5,7 @@
     <SSDTUnitTestPath Condition="'$(SSDTUnitTestPath)' == ''">$(VsInstallRoot)\Common7\IDE\Extensions\Microsoft\SQLDB</SSDTUnitTestPath>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <PublishUrl>B:\ExpTrac\</PublishUrl>
+    <PublishUrl>B:\ExpenseTrack-latest\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -15,7 +15,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>13</ApplicationRevision>
+    <ApplicationRevision>17</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -494,6 +494,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="cost.ico" />
+    <Content Include="ExpenseDB.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExpenseDB_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>ExpenseDB.mdf</DependentUpon>
+    </Content>
     <None Include="Imgs\pie-chart %281%29.png" />
     <None Include="Imgs\expense.png" />
     <None Include="Imgs\money.png" />

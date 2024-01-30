@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.Total_Income_Dashboard = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.Incm_Trans = new System.Windows.Forms.Label();
@@ -40,7 +40,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
+            this.TotlInc = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnReport = new System.Windows.Forms.Button();
             this.BtnIncome = new System.Windows.Forms.Button();
@@ -85,7 +85,7 @@
             this.Total_Income_Dashboard.Controls.Add(this.label3);
             this.Total_Income_Dashboard.Controls.Add(this.label23);
             this.Total_Income_Dashboard.Controls.Add(this.label18);
-            this.Total_Income_Dashboard.Controls.Add(this.label17);
+            this.Total_Income_Dashboard.Controls.Add(this.TotlInc);
             this.Total_Income_Dashboard.Location = new System.Drawing.Point(259, 66);
             this.Total_Income_Dashboard.Name = "Total_Income_Dashboard";
             this.Total_Income_Dashboard.Size = new System.Drawing.Size(1142, 90);
@@ -173,16 +173,16 @@
             this.label18.TabIndex = 3;
             this.label18.Text = "0";
             // 
-            // label17
+            // TotlInc
             // 
-            this.label17.AutoSize = true;
-            this.label17.BackColor = System.Drawing.Color.Gainsboro;
-            this.label17.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(168, 47);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(93, 23);
-            this.label17.TabIndex = 4;
-            this.label17.Text = "RS 23000";
+            this.TotlInc.AutoSize = true;
+            this.TotlInc.BackColor = System.Drawing.Color.Gainsboro;
+            this.TotlInc.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TotlInc.Location = new System.Drawing.Point(168, 47);
+            this.TotlInc.Name = "TotlInc";
+            this.TotlInc.Size = new System.Drawing.Size(93, 23);
+            this.TotlInc.TabIndex = 4;
+            this.TotlInc.Text = "RS 23000";
             // 
             // panel1
             // 
@@ -204,8 +204,8 @@
             // 
             this.BtnReport.BackColor = System.Drawing.Color.Transparent;
             this.BtnReport.FlatAppearance.BorderSize = 0;
-            this.BtnReport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.BtnReport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.BtnReport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.BtnReport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
             this.BtnReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnReport.Font = new System.Drawing.Font("Lexend SemiBold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnReport.ForeColor = System.Drawing.Color.WhiteSmoke;
@@ -224,8 +224,8 @@
             // 
             this.BtnIncome.BackColor = System.Drawing.Color.Transparent;
             this.BtnIncome.FlatAppearance.BorderSize = 0;
-            this.BtnIncome.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.BtnIncome.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.BtnIncome.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.BtnIncome.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
             this.BtnIncome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnIncome.Font = new System.Drawing.Font("Lexend SemiBold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnIncome.ForeColor = System.Drawing.Color.GreenYellow;
@@ -244,8 +244,8 @@
             // 
             this.BtnExpense.BackColor = System.Drawing.Color.Transparent;
             this.BtnExpense.FlatAppearance.BorderSize = 0;
-            this.BtnExpense.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.BtnExpense.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.BtnExpense.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.BtnExpense.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
             this.BtnExpense.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnExpense.Font = new System.Drawing.Font("Lexend SemiBold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnExpense.ForeColor = System.Drawing.Color.WhiteSmoke;
@@ -264,8 +264,8 @@
             // 
             this.BtnDashboard.BackColor = System.Drawing.Color.Transparent;
             this.BtnDashboard.FlatAppearance.BorderSize = 0;
-            this.BtnDashboard.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.BtnDashboard.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.BtnDashboard.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.BtnDashboard.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
             this.BtnDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnDashboard.Font = new System.Drawing.Font("Lexend SemiBold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnDashboard.ForeColor = System.Drawing.Color.WhiteSmoke;
@@ -510,27 +510,27 @@
             // 
             // chart1
             // 
-            chartArea3.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea3);
-            legend3.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
-            legend3.Name = "Legend1";
-            this.chart1.Legends.Add(legend3);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(3, 3);
             this.chart1.Name = "chart1";
-            series3.BorderWidth = 3;
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.chart1.Series.Add(series3);
+            series1.BorderWidth = 3;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(619, 330);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
-            title3.Alignment = System.Drawing.ContentAlignment.MiddleLeft;
-            title3.Font = new System.Drawing.Font("Lexend SemiBold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title3.Name = "Title1";
-            title3.Text = "Statistics";
-            this.chart1.Titles.Add(title3);
+            title1.Alignment = System.Drawing.ContentAlignment.MiddleLeft;
+            title1.Font = new System.Drawing.Font("Lexend SemiBold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title1.Name = "Title1";
+            title1.Text = "Statistics";
+            this.chart1.Titles.Add(title1);
             // 
             // Income
             // 
@@ -596,6 +596,6 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label TotlInc;
     }
 }
