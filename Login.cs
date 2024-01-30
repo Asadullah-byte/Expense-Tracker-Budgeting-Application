@@ -1,4 +1,9 @@
-﻿using System;
+﻿
+// Document Level Comment:
+// This code represents the login functionality of an Expense Tracker application.
+// It includes user authentication against a database and provides UI interactions for login.
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,21 +17,26 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
 
-
+// Class Level Comment:
+// The Login class represents the main form for user authentication and login in the Expense Tracker application.
 namespace Expense_Tracker
 {
-    public partial class Login : Form
-    {
-        string sqlStr = "";
-        SqlConnection Conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=B:\\SCD\\Database1.mdf;Integrated Security=True");
+    
 
+    public partial class LoginCls : Form
+    {
+        // Connection to the database
+        string sqlStr = "";
+        SqlConnection Con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|ExpenseDB.mdf;Integrated Security=True;Connect Timeout=30");
+
+        // Placeholder texts for username and password & Place holder Pattern to validte and ensure .
         string usernamePattern = @"^[a-zA-Z0-9_]{4,}$";
         string emailPattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{3,}$";
         string passwordpattern = @"^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*\W).{5,}$";
         private const string PHT_username = "name@example.com";
         private const string PHT_password = "Atleast 8 letter long";
         private const char PHT_Passchar = '•';
-        public Login()
+        public LoginCls()
         {
             InitializeComponent();
             txtUsername.Text = PHT_username;
@@ -41,31 +51,46 @@ namespace Expense_Tracker
         {
 
         }
-
+        //Clears the fields data on click
         private void clearButton_Click(object sender, EventArgs e)
         {
             txtUsername.Text = "";
             txtPass.Text = "";
             txtUsername.Focus();
         }
+        //User mathod to fetch user email
+        public static string User;
+        private bool Dashboardloads;
 
-        private void loginButton_Click(object sender, EventArgs e)
+        public void loginButton_Click(object sender, EventArgs e)
         {
-            sqlStr = "Select *  from [Table] where username ='" + txtUsername.Text + "' and  password='" + txtPass.Text + "'";
-            Conn.Open();
-            SqlCommand cmd1 = new SqlCommand(sqlStr, Conn);
+            // SQL query to check user credentials from Username # password filed in DB table
+            sqlStr = "Select *  from [UserTbl] where username ='" + txtUsername.Text + "' and  password='" + txtPass.Text + "'";
+            Con.Open();
+            SqlCommand cmd1 = new SqlCommand(sqlStr, Con);
             SqlDataReader dr1 = cmd1.ExecuteReader();
+            
             if (dr1.Read())
             {
-
-                MessageBox.Show("login Successfull");
-               
+                
+                User = txtUsername.Text;
+                Dashboardloads = true;
+                Income obj =new Income();
+                obj.Show();
+                this.Hide();
+                
+              
             }
             else
             {
+                //If invalid message popup
+                Dashboardloads = false;
                 MessageBox.Show("invalidID ");
+                txtUsername.Text = "";
+                txtPass.Text = "";
+
             }
-            Conn.Close();
+            Con.Close();
             //if (txtUsername.Text == "" || txtPass.Text == "" )
             //{
               //  MessageBox.Show("Username Or Password Field Empty", "Login Failed!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -75,7 +100,12 @@ namespace Expense_Tracker
             //txtUsername.Focus();
 
         }
+        public bool GetDashboardloads()
+        {
+            return Dashboardloads;
+        }
 
+        //password field dot and number showpasword functionanlity
         private void shwPass_CheckedChanged(object sender, EventArgs e)
         {
             if (shwPass.Checked)
@@ -94,10 +124,7 @@ namespace Expense_Tracker
 
         
 
-        private void ConPass_Label_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void Pass_Label_Click(object sender, EventArgs e)
         {
@@ -118,7 +145,7 @@ namespace Expense_Tracker
         {
 
         }
-
+        //text changed to show gray color 
         private void txtPass_TextChanged(object sender, EventArgs e)
         {
             if (txtPass.Text == PHT_password)
@@ -138,7 +165,7 @@ namespace Expense_Tracker
 
                 }
             }
-
+        // onleave functionlity to check email and password pattern for end to end 
         private void txtUsername_Leave(object sender, EventArgs e)
         {
             if (!(Regex.IsMatch(txtUsername.Text, emailPattern))) //Regex == Text validation
@@ -212,6 +239,11 @@ namespace Expense_Tracker
                 txtPass.ForeColor = SystemColors.WindowText;
                 txtPass.PasswordChar = PHT_Passchar;
             }
+        }
+
+        public bool loginButton_Click()
+        {
+            throw new NotImplementedException();
         }
     }
 }

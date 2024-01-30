@@ -26,11 +26,11 @@ namespace Expense_Tracker.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Database1.mdf" +
-            ";Integrated Security=True")]
-        public string cn {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\ExpenseDB.mdf" +
+            ";Integrated Security=True;Connect Timeout=30")]
+        public string ExpenseDBConnectionString {
             get {
-                return ((string)(this["cn"]));
+                return ((string)(this["ExpenseDBConnectionString"]));
             }
         }
     }

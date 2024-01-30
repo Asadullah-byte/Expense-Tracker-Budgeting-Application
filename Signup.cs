@@ -43,6 +43,7 @@ namespace Expense_Tracker
         private void button1_Click(object sender, EventArgs e)
         {
             Application.Exit();
+            
         }
 
         private void txtUsername_Enter(object sender, EventArgs e)
@@ -243,7 +244,7 @@ namespace Expense_Tracker
 
         private void LOGIN_Click(object sender, EventArgs e)
         {
-            new Login().Show();
+            new LoginCls().Show();
             this.Hide();
         }
 
@@ -253,12 +254,11 @@ namespace Expense_Tracker
             {
                 MessageBox.Show("Verification Successful! You can now proceed with registration.");
                 // Additional code for successful verification
-                SqlConnection conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=B:\\SCD\\Database1.mdf;Integrated Security=True");
-                SqlCommand cmd = new SqlCommand(@"INSERT INTO [dbo].[Table]([username],[password]) VALUES ('" + txtUsername.Text + "','" + txtPass.Text + "')", conn);
-                conn.Open();
+                SqlConnection Con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|ExpenseDB.mdf;Integrated Security=True;Connect Timeout=30");
+                SqlCommand cmd = new SqlCommand(@"INSERT INTO [dbo].[UserTbl]([username],[password]) VALUES ('" + txtUsername.Text + "','" + txtPass.Text + "')", Con);
+                Con.Open();
                 cmd.ExecuteNonQuery();
-                conn.Close();
-                // Application.Exit ();
+                Con.Close();
                 MessageBox.Show("Register Successfully");
                 ClearFields();
             }
